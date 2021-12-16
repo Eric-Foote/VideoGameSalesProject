@@ -1,0 +1,108 @@
+# SQL Queries:
+# This Creates the Table 
+
+drop table if exists VgSales;
+
+create table VgSales(
+    Rank INT,                                   
+    Name STRING,                                
+    Platform STRING,                            
+    Year STRING,                                  
+    Genre STRING,                               
+    Publisher STRING,                           
+    NA_Sales DECIMAL,                           
+    EU_Sales DECIMAL,                           
+    JP_Sales DECIMAL,                           
+    Other_Sales DECIMAL,
+    Global_Sales DECIMAL)
+
+ROW FORMAT DELIMITED 
+FIELDS TERMINATED BY ',' ;
+
+LOAD DATA INPATH '/user/root/projects/vgsales.csv' INTO TABLE VgSales;
+
+# Average Number of Sales in North America in 1984
+
+select avg(na_sales)
+from VgSales
+where year = "1984";
+
+# Average Number of Sales in North America in 1996
+
+select avg(na_sales)
+from VgSales
+where year = "1996";
+
+# Average Number of Sales in North America in 2014
+
+select avg(na_sales)
+from VgSales
+where year = "2014";
+
+# Average Number of Sales in Europe in 1996
+
+select avg(eu_sales)
+from VgSales
+where year = "1996";
+
+# Average Number of Sales in Japan in 1996
+
+select avg(jp_sales)
+from VgSales
+where year = "1996";
+
+# Total Number of Sales in North America in 1996
+
+select sum(na_sales)
+from VgSales
+where year = "1996";
+
+# Total Number of Sales in Europe in 1996
+
+select sum(eu_sales)
+from VgSales
+where year = "1996";
+
+# Total Number of Sales in Japan in 1996
+
+select sum(jp_sales)
+from VgSales
+where year = "1996";
+
+# Average Number of Sales in Europe in 2014
+
+select avg(eu_sales)
+from VgSales
+where year = "2014";
+
+# Average Number of Sales in Japan in 2014
+
+select avg(jp_sales)
+from VgSales
+where year = "2014";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
